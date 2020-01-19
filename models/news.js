@@ -5,7 +5,7 @@ const { Schema, model } = mongoose
 const newsSchema = new Schema({
   title: {
     type: String, 
-    required: [true, 'Name must be required'],
+    required: [true, 'Name Title must be required'],
     unique: true
   },
   status: {

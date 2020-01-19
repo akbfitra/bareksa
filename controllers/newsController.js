@@ -1,4 +1,5 @@
 const News = require('../models/news.js')
+const mongoose = require('mongoose');
 
 class NewsController{
   static async create(req, res, next){
@@ -23,6 +24,8 @@ class NewsController{
   }
 
   static async findOne(req, res, next){
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
     try{
       const { id } = req.params
       const dataById = await News.findById(id).populate('tags')
@@ -50,18 +53,19 @@ class NewsController{
   }
 
   static async update(req, res, next){
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
     try{
-      const { id } = req.params
-      const fields = ['title', 'content', 'status', 'tags']
+      const fields = ['title', 'content', 'status', 'tags', 'topic']
       const update = {}
       for(let key in req.body){
         fields.forEach(el => {
           if(key === el){
             update[key] = req.body[key]
           }
-        });
+        })
       }
-      const updated = await News.findByIdAndUpdate(id, update)
+      const updated = await News.findByIdAndUpdate(id, update, { runValidators: true, new: true , context: 'query'})
       res.status(200).json(updated)
     }
     catch(err){
@@ -70,10 +74,11 @@ class NewsController{
   }
 
   static async updateStatus(req, res, next){
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
     try{
-      const { id } = req.params
       const { status } = req.body
-      const updateStatus = await News.findByIdAndUpdate(id, { status })
+      let updateStatus = await News.findByIdAndUpdate(id, { status }, { runValidators: true, new: true , context: 'query'})
       res.status(200).json(updateStatus)
     }
     catch(err){
@@ -82,9 +87,11 @@ class NewsController{
   }
 
   static async delete(req, res, next){
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
     try{
-      const { id } = req.params
       const deleted = await News.findByIdAndRemove(id)
+      res.status(200).json(deleted)
     }
     catch(err){
       next(err)

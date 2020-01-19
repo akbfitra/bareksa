@@ -23,8 +23,10 @@ class TagController{
   }
 
   static async findOne(req, res, next){
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
     try{
-      const { id } = req.params
+      
       const dataTag = await Tag.findById(id)
       res.status(200).json(dataTag)
     }
@@ -34,8 +36,9 @@ class TagController{
   }
 
   static async delete(req, res, next){
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
     try{
-      const { id } = req.params
       const deleted = await Tag.findByIdAndRemove(id)
       res.status(200).json(deleted)
     }
@@ -45,9 +48,11 @@ class TagController{
   }
 
   static async update(req, res, next){
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
     try{
       const name = req.body
-      const updated = await Tag.findByIdAndUpdate(id, { name })
+      const updated = await Tag.findByIdAndUpdate(id, { name }, { runValidators: true, new: true , context: 'query' })
       res.status(200).json(updated)
     }
     catch(err){

@@ -5,7 +5,7 @@ let db = NODE_ENV ? `mongodb://localhost:27017/bareksa-${NODE_ENV}`: process.env
 
 // const MONGO_CONNECT = process.env.MONGO_CONNECT
 
-mongoose.connect(db, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => {
     console.log(db, `Mongodb Connected`)
   })
