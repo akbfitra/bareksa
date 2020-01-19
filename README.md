@@ -81,7 +81,7 @@ Routes For REST API
 
 ### Detail Request
 
-- ##### Get All News
+- #### Get All News
 
   ------
 
@@ -104,8 +104,8 @@ Routes For REST API
 
   - **Success Response:**
 
-    - **Code:** 200 
-      **Content:** 
+    - **Code:** 200 </br>
+    - **Content:** 
 
       ```json
       [
@@ -131,7 +131,7 @@ Routes For REST API
 
   
 
-- ##### Filter News
+- #### Filter News
 
   ------
 
@@ -164,8 +164,8 @@ Routes For REST API
 
   - **Success Response:**
 
-    - **Code:** 200 
-      **Content:** 
+    - **Code:** 200 </br>
+    - **Content:** 
 
       ```json
       [
@@ -191,7 +191,7 @@ Routes For REST API
 
   
 
-- ##### Get Detail News
+- #### Get Detail News
 
   ------
 
@@ -214,11 +214,11 @@ Routes For REST API
   
   - **Success Response:**
 
-    - **Code:** 200 
-    **Content:** 
+    - **Code:** 200 </br>
+    - **Content:** 
   
       ```json
-    {
+      { 
           "status": "draft",
           "tags": [
               {
@@ -239,7 +239,7 @@ Routes For REST API
   
   
 
-- ##### Create News
+- #### Create News
 
   ------
 
@@ -267,9 +267,8 @@ Routes For REST API
     
   - **Success Response**
   
-    - **Code: 200**
-  
-    - **Content: **
+    - **Code: 200** </br>
+    - **Content:** 
   
       ```json
       {
@@ -285,12 +284,10 @@ Routes For REST API
           "updatedAt": "2020-01-19T06:24:20.584Z"
       }
       ```
-  ```
-    
-      
-    ```
   
-- **Update News**
+  
+  
+- #### **Update News**
   
   ------
   
@@ -319,9 +316,8 @@ Routes For REST API
   
   - **Success Response**
   
-    - **Code: 200**
-  
-    - **Content: **
+    - **Code: 200**</br>
+    - **Content:** 
   
       ```json
       {
@@ -340,7 +336,7 @@ Routes For REST API
   
   
   
-- **Update Status News**
+- #### **Update Status News**
 
   ------
 
@@ -365,9 +361,8 @@ Routes For REST API
 
   - **Success Response**
 
-    - **Code: 200**
-
-    - **Content: **
+    - **Code: 200**</br>
+    - **Content:** 
 
       ```json
       {
@@ -386,7 +381,7 @@ Routes For REST API
 
   
 
-- **Delete News**
+- #### **Delete News**
 
   ------
 
@@ -409,9 +404,8 @@ Routes For REST API
 
   - **Success Response**
 
-    - **Code: 200**
-
-    - **Content: **
+    - **Code: 200**</br>
+    - **Content:** 
 
       ```json
       {
@@ -430,7 +424,7 @@ Routes For REST API
 
   
 
-- **Get All Tags**
+- #### **Get All Tags**
 
   ------
 
@@ -453,8 +447,8 @@ Routes For REST API
 
   - **Success Response:**
 
-    - **Code:** 200 
-      **Content:** 
+    - **Code:200**</br>
+    - **Content:** 
 
       ```json
       [
@@ -467,7 +461,9 @@ Routes For REST API
       ]
       ```
 
-- ##### Get One Data Tags
+  
+
+- #### Get One Data Tags
 
   ------
 
@@ -490,8 +486,8 @@ Routes For REST API
 
   - **Success Response:**
 
-    - **Code:** 200 
-      **Content:** 
+    - **Code:200**</br> 
+    -  **Content:** 
 
       ```json
       {
@@ -504,7 +500,7 @@ Routes For REST API
 
   
 
-- ##### Create Tag
+- #### Create Tag
 
   ------
 
@@ -529,9 +525,8 @@ Routes For REST API
 
   - **Success Response**
 
-    - **Code: 200**
-
-    - **Content: **
+    - **Code: 200**</br> 
+    - **Content:** 
 
       ```json
       {
@@ -542,7 +537,9 @@ Routes For REST API
       }
       ```
 
-- **Update Tag**
+  
+
+- #### **Update Tag**
 
   ------
 
@@ -567,9 +564,8 @@ Routes For REST API
 
   - **Success Response**
 
-    - **Code: 200**
-
-    - **Content: **
+    - **Code: 200**</br> 
+    - **Content:** 
 
       ```json
       {
@@ -580,7 +576,9 @@ Routes For REST API
       }
       ```
 
-- **Delete Tag**
+  
+
+- #### **Delete Tag**
 
   ------
 
@@ -603,9 +601,8 @@ Routes For REST API
 
   - **Success Response**
 
-    - **Code: 200**
-
-    - **Content: **
+    - **Code: 200**</br> 
+    - **Content:** 
 
       ```json
       {
