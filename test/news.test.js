@@ -15,6 +15,7 @@ after(function(done){
     News.deleteMany({})
       .then( data => {
         console.log('database News was deleted')
+        
         Tag.deleteMany({})
         .then(data => {
           console.log('database Tag was deleted')
@@ -39,7 +40,7 @@ before(function (done){
         done()
       })
       .catch(err => {
-        // console.log(err)
+        console.log(err)
       })
   }
 })

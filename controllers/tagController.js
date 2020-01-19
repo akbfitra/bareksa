@@ -1,4 +1,5 @@
 const Tag = require('../models/tag')
+const mongoose = require('mongoose');
 
 class TagController{
   static async create(req, res, next){
@@ -15,7 +16,7 @@ class TagController{
   static async findAll(req, res, next){
     try{
       const dataTags = await Tag.find()
-      res.status(201).json(dataTags)
+      res.status(200).json(dataTags)
     }
     catch(err){
       next(err)
@@ -24,7 +25,7 @@ class TagController{
 
   static async findOne(req, res, next){
     const { id } = req.params
-    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data Tag Not Found'})
     try{
       
       const dataTag = await Tag.findById(id)
@@ -37,7 +38,7 @@ class TagController{
 
   static async delete(req, res, next){
     const { id } = req.params
-    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data Tag Not Found'})
     try{
       const deleted = await Tag.findByIdAndRemove(id)
       res.status(200).json(deleted)
@@ -49,9 +50,9 @@ class TagController{
 
   static async update(req, res, next){
     const { id } = req.params
-    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data News Not Found'})
+    if (!mongoose.Types.ObjectId.isValid(id)) next({status: 404, msg: 'Data Tag Not Found'})
     try{
-      const name = req.body
+      const {name} = req.body
       const updated = await Tag.findByIdAndUpdate(id, { name }, { runValidators: true, new: true , context: 'query' })
       res.status(200).json(updated)
     }
