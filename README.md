@@ -31,7 +31,7 @@ Routes For REST API
 - ##### BASE URL
 
   ```http
-  http://localhost:3000
+  http://34.87.112.197
   ```
   
 - **News**
